@@ -1,0 +1,28 @@
+import logo from './logo.svg';
+import './App.css';
+import React from "react";
+import PersonProfile from "./components/PersonProfile.js";
+import { data } from "./data/module-data.js";
+import RootLayout from './layouts/RootLayout.js';
+import Lab1 from "./pages/Lab1";
+
+function App() {
+  return (
+    <RootLayout>
+    <div>
+            <h1 style={{ textAlign: "center" }}>Person Profiles</h1>
+            {data.map((person) => (
+                <PersonProfile
+                    key={person.id}
+                    id={person.id}
+                    name={person.name}
+                    dateOfBirth={person.dateOfBirth}
+                    eyeColor={person.eyeColor}
+                />
+            ))}
+        </div>
+        </RootLayout>
+  );
+}
+
+export default App;
